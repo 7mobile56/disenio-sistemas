@@ -1,0 +1,14 @@
+/.settings/
+/.project
+.project
+/.classpath
+*/.settings/
+*/.project
+*/.classpath
+#*/.gitignore
+*/target/
+**/data/
+**/typings/
+.project
+**/.springBeans
+
