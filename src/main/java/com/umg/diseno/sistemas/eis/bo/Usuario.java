@@ -14,12 +14,12 @@ public class Usuario extends AbstractBO {
 
     private static final long serialVersionUID = 1L;
 	private Integer idUsuario;
-	private Integer idEstado;
+	private EstadoUsuario idEstado;
 	private String password;
 	private Date fechaCreacion;
 	private Date ultimoLogin;
 	private Boolean bloqueado;
-	private Integer personaId;
+	private Persona personaId;
 	
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -32,10 +32,10 @@ public class Usuario extends AbstractBO {
 	
 	@ManyToOne
 	@JoinColumn(name = "id_estado")
-	public Integer getIdEstado() {
+	public EstadoUsuario getIdEstado() {
 		return idEstado;
 	}
-	public void setIdEstado(Integer idEstado) {
+	public void setIdEstado(EstadoUsuario idEstado) {
 		this.idEstado = idEstado;
 	}
 	public String getPassword() {
@@ -65,10 +65,10 @@ public class Usuario extends AbstractBO {
 	
 	@ManyToOne
 	@JoinColumn(name = "persona_id")
-	public Integer getPersonaId() {
+	public Persona getPersonaId() {
 		return personaId;
 	}
-	public void setPersonaId(Integer personaId) {
+	public void setPersonaId(Persona personaId) {
 		this.personaId = personaId;
 	}
 	

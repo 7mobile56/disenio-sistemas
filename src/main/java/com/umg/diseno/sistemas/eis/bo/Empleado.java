@@ -13,9 +13,9 @@ public class Empleado extends AbstractBO {
     private static final long serialVersionUID = 1L;
 
 	private Integer idEmpleado;
-	private Integer idPuesto;
-	private Integer idUsuario;
-	private Integer personaId;
+	private Puesto idPuesto;
+	private Usuario idUsuario;
+	private Persona personaId;
 	
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,28 +28,28 @@ public class Empleado extends AbstractBO {
 	
     @ManyToOne
     @JoinColumn(name = "id_puesto")
-	public Integer getIdPuesto() {
+	public Puesto getIdPuesto() {
 		return idPuesto;
 	}
-	public void setIdPuesto(Integer idPuesto) {
+	public void setIdPuesto(Puesto idPuesto) {
 		this.idPuesto = idPuesto;
 	}
 	
     @ManyToOne
     @JoinColumn(name = "id_usuario")
-	public Integer getIdUsuario() {
+	public Usuario getIdUsuario() {
 		return idUsuario;
 	}
-	public void setIdUsuario(Integer idUsuario) {
+	public void setIdUsuario(Usuario idUsuario) {
 		this.idUsuario = idUsuario;
 	}
 	
     @ManyToOne
     @JoinColumn(name = "persona_id")
-	public Integer getPersonaId() {
+	public Persona getPersonaId() {
 		return personaId;
 	}
-	public void setPersonaId(Integer personaId) {
+	public void setPersonaId(Persona personaId) {
 		this.personaId = personaId;
 	}
 	

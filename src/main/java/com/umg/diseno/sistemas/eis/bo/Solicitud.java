@@ -16,10 +16,10 @@ public class Solicitud extends AbstractBO {
 	private Integer id;
 	private String descripcion;
 	private Date fechaSolicitud;
-	private Integer tipoSolicitudId;
-	private Integer clienteId;
-	private Integer idEstado;
-	private Integer idUsuario;
+	private TipoSolicitud tipoSolicitudId;
+	private Cliente clienteId;
+	private EstadoSolicitud idEstado;
+	private Usuario idUsuario;
 	
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -44,37 +44,37 @@ public class Solicitud extends AbstractBO {
 	
 	@ManyToOne
 	@JoinColumn(name = "tipoSolicitud_id")
-	public Integer getTipoSolicitudId() {
+	public TipoSolicitud getTipoSolicitudId() {
 		return tipoSolicitudId;
 	}
-	public void setTipoSolicitudId(Integer tipoSolicitudId) {
+	public void setTipoSolicitudId(TipoSolicitud tipoSolicitudId) {
 		this.tipoSolicitudId = tipoSolicitudId;
 	}
 	
 	@ManyToOne
 	@JoinColumn(name = "cliente_id")
-	public Integer getClienteId() {
+	public Cliente getClienteId() {
 		return clienteId;
 	}
-	public void setClienteId(Integer clienteId) {
+	public void setClienteId(Cliente clienteId) {
 		this.clienteId = clienteId;
 	}
 	
 	@ManyToOne
 	@JoinColumn(name = "estados_solicitud_id_estado")
-	public Integer getIdEstado() {
+	public EstadoSolicitud getIdEstado() {
 		return idEstado;
 	}
-	public void setIdEstado(Integer idEstado) {
+	public void setIdEstado(EstadoSolicitud idEstado) {
 		this.idEstado = idEstado;
 	}
 	
 	@ManyToOne
 	@JoinColumn(name = "usuarios_id_usuario")
-	public Integer getIdUsuario() {
+	public Usuario getIdUsuario() {
 		return idUsuario;
 	}
-	public void setIdUsuario(Integer idUsuario) {
+	public void setIdUsuario(Usuario idUsuario) {
 		this.idUsuario = idUsuario;
 	}
 	

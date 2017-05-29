@@ -17,10 +17,10 @@ public class Recaudacion extends AbstractBO {
 
 	private Integer id;
 	private Date fechaHora;
-	private Integer maquinitaId;
-	private Integer clienteId;
+	private Maquinita maquinitaId;
+	private Cliente clienteId;
 	private BigDecimal monto;
-	private Integer empleadoId; // El empleado que colecto la recaudacion.
+	private Persona empleadoId; // El empleado que colecto la recaudacion.
 	
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -39,19 +39,19 @@ public class Recaudacion extends AbstractBO {
 	
     @ManyToOne
     @JoinColumn(name = "maquinita_id")
-	public Integer getMaquinitaId() {
+	public Maquinita getMaquinitaId() {
 		return maquinitaId;
 	}
-	public void setMaquinitaId(Integer maquinitaId) {
+	public void setMaquinitaId(Maquinita maquinitaId) {
 		this.maquinitaId = maquinitaId;
 	}
 	
     @ManyToOne
     @JoinColumn(name = "cliente_id")
-	public Integer getClienteId() {
+	public Cliente getClienteId() {
 		return clienteId;
 	}
-	public void setClienteId(Integer clienteId) {
+	public void setClienteId(Cliente clienteId) {
 		this.clienteId = clienteId;
 	}
 	public BigDecimal getMonto() {
@@ -63,10 +63,10 @@ public class Recaudacion extends AbstractBO {
 	
     @ManyToOne
     @JoinColumn(name = "persona_id")
-	public Integer getEmpleadoId() {
+	public Persona getEmpleadoId() {
 		return empleadoId;
 	}
-	public void setEmpleadoId(Integer empleadoId) {
+	public void setEmpleadoId(Persona empleadoId) {
 		this.empleadoId = empleadoId;
 	}
 	

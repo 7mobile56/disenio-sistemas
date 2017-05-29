@@ -14,13 +14,13 @@ public class IncidenciaEnsamblaje extends AbstractBO {
     private static final long serialVersionUID = 1L;
 
 	private Integer idIncidencia;
-	private Integer idUsuarioIngreso;
+	private Usuario idUsuarioIngreso;
 	private String descripcion;
 	private Date fechaIngreso;
-	private Integer idUsuarioSolvento;
+	private Usuario idUsuarioSolvento;
 	private String solucion;
 	private Date fechaSolucion;
-	private Integer idSolicitud;
+	private Solicitud idSolicitud;
 	
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -33,10 +33,10 @@ public class IncidenciaEnsamblaje extends AbstractBO {
 	
     @ManyToOne
     @JoinColumn(name = "id_usuario_ingreso")
-	public Integer getIdUsuarioIngreso() {
+	public Usuario getIdUsuarioIngreso() {
 		return idUsuarioIngreso;
 	}
-	public void setIdUsuarioIngreso(Integer idUsuarioIngreso) {
+	public void setIdUsuarioIngreso(Usuario idUsuarioIngreso) {
 		this.idUsuarioIngreso = idUsuarioIngreso;
 	}
 	public String getDescripcion() {
@@ -54,10 +54,10 @@ public class IncidenciaEnsamblaje extends AbstractBO {
 	
     @ManyToOne
     @JoinColumn(name = "id_usuario_solvento")
-	public Integer getIdUsuarioSolvento() {
+	public Usuario getIdUsuarioSolvento() {
 		return idUsuarioSolvento;
 	}
-	public void setIdUsuarioSolvento(Integer idUsuarioSolvento) {
+	public void setIdUsuarioSolvento(Usuario idUsuarioSolvento) {
 		this.idUsuarioSolvento = idUsuarioSolvento;
 	}
 	public String getSolucion() {
@@ -75,10 +75,10 @@ public class IncidenciaEnsamblaje extends AbstractBO {
 	
     @ManyToOne
     @JoinColumn(name = "solicitud_id")
-	public Integer getIdSolicitud() {
+	public Solicitud getIdSolicitud() {
 		return idSolicitud;
 	}
-	public void setIdSolicitud(Integer idSolicitud) {
+	public void setIdSolicitud(Solicitud idSolicitud) {
 		this.idSolicitud = idSolicitud;
 	}
 }

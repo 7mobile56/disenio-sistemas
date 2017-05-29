@@ -17,7 +17,7 @@ public class Mantenimiento extends AbstractBO {
 	private String descripcion;
 	private Date fechaInicio;
 	private Date fechaFin;
-	private Integer ordenId;
+	private Orden ordenId;
 	private Integer idTipoMantenimiento;
 	
     @Id
@@ -47,12 +47,12 @@ public class Mantenimiento extends AbstractBO {
 		this.fechaFin = fechaFin;
 	}
 	
-    @ManyToOne (targetEntity = Orden.class)   
+    @ManyToOne ()   
     @JoinColumn(name = "orden_id")
-	public Integer getOrdenId() {
+	public Orden getOrdenId() {
 		return ordenId;
 	}
-	public void setOrdenId(Integer ordenId) {
+	public void setOrdenId(Orden ordenId) {
 		this.ordenId = ordenId;
 	}
 	

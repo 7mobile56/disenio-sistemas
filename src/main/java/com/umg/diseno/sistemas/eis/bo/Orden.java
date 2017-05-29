@@ -16,9 +16,9 @@ public class Orden extends AbstractBO {
 	private Integer id;
 	private String descripcion;
 	private Date fecha;
-	private Integer solicitudId;
-	private Integer registroMaquinitaId;
-	private Integer idEmpleado;
+	private Solicitud solicitudId;
+	private RegistroMaquinita registroMaquinitaId;
+	private Empleado idEmpleado;
 	
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -43,27 +43,27 @@ public class Orden extends AbstractBO {
 	
     @ManyToOne
     @JoinColumn(name = "solicitud_id")
-	public Integer getSolicitudId() {
+	public Solicitud getSolicitudId() {
 		return solicitudId;
 	}
-	public void setSolicitudId(Integer solicitudId) {
+	public void setSolicitudId(Solicitud solicitudId) {
 		this.solicitudId = solicitudId;
 	}
 	
     @ManyToOne
     @JoinColumn(name = "registroMaquinita_id")
-	public Integer getRegistroMaquinitaId() {
+	public RegistroMaquinita getRegistroMaquinitaId() {
 		return registroMaquinitaId;
 	}
-	public void setRegistroMaquinitaId(Integer registroMaquinitaId) {
+	public void setRegistroMaquinitaId(RegistroMaquinita registroMaquinitaId) {
 		this.registroMaquinitaId = registroMaquinitaId;
 	}
     @ManyToOne
     @JoinColumn(name = "empleados_id_empleado")
-	public Integer getIdEmpleado() {
+	public Empleado getIdEmpleado() {
 		return idEmpleado;
 	}
-	public void setIdEmpleado(Integer idEmpleado) {
+	public void setIdEmpleado(Empleado idEmpleado) {
 		this.idEmpleado = idEmpleado;
 	}
     

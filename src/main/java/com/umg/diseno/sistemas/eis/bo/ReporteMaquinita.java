@@ -17,8 +17,8 @@ public class ReporteMaquinita extends AbstractBO {
 	private Integer id;
 	private String descripcion;
 	private Date fechaElaboracion;
-	private Integer estadoMaquinitaId;
-	private Integer mantenimientoId;
+	private EstadoMaquinita estadoMaquinitaId;
+	private Mantenimiento mantenimientoId;
 	
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -43,19 +43,19 @@ public class ReporteMaquinita extends AbstractBO {
 	
     @ManyToOne
     @JoinColumn(name = "estadoMaquinita_id")
-	public Integer getEstadoMaquinitaId() {
+	public EstadoMaquinita getEstadoMaquinitaId() {
 		return estadoMaquinitaId;
 	}
-	public void setEstadoMaquinitaId(Integer estadoMaquinitaId) {
+	public void setEstadoMaquinitaId(EstadoMaquinita estadoMaquinitaId) {
 		this.estadoMaquinitaId = estadoMaquinitaId;
 	}
 	
     @ManyToOne
     @JoinColumn(name = "mantenimiento_id")
-	public Integer getMantenimientoId() {
+	public Mantenimiento getMantenimientoId() {
 		return mantenimientoId;
 	}
-	public void setMantenimientoId(Integer mantenimientoId) {
+	public void setMantenimientoId(Mantenimiento mantenimientoId) {
 		this.mantenimientoId = mantenimientoId;
 	}
 

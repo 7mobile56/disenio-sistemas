@@ -17,10 +17,10 @@ public class RegistroMaquinita extends AbstractBO {
 	private Integer id;
 	private String ubicacion;
 	private Date fechaPuesta;
-	private Integer estadoMaquinitaId;
-	private Integer maquinitaId;
-	private Integer tipoMaquinitaId;
-	private Integer clienteId;
+	private EstadoMaquinita estadoMaquinitaId;
+	private Maquinita maquinitaId;
+	private TipoMaquinita tipoMaquinitaId;
+	private Cliente clienteId;
 	
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -45,37 +45,37 @@ public class RegistroMaquinita extends AbstractBO {
 	
     @ManyToOne
     @JoinColumn(name = "estadoMaquinita_id")
-	public Integer getEstadoMaquinitaId() {
+	public EstadoMaquinita getEstadoMaquinitaId() {
 		return estadoMaquinitaId;
 	}
-	public void setEstadoMaquinitaId(Integer estadoMaquinitaId) {
+	public void setEstadoMaquinitaId(EstadoMaquinita estadoMaquinitaId) {
 		this.estadoMaquinitaId = estadoMaquinitaId;
 	}
 	
     @ManyToOne
     @JoinColumn(name = "maquinita_id")
-	public Integer getMaquinitaId() {
+	public Maquinita getMaquinitaId() {
 		return maquinitaId;
 	}
-	public void setMaquinitaId(Integer maquinitaId) {
+	public void setMaquinitaId(Maquinita maquinitaId) {
 		this.maquinitaId = maquinitaId;
 	}
 	
     @ManyToOne
     @JoinColumn(name = "maquinita_tipo_maquinita_id")
-	public Integer getTipoMaquinitaId() {
+	public TipoMaquinita getTipoMaquinitaId() {
 		return tipoMaquinitaId;
 	}
-	public void setTipoMaquinitaId(Integer tipoMaquinitaId) {
+	public void setTipoMaquinitaId(TipoMaquinita tipoMaquinitaId) {
 		this.tipoMaquinitaId = tipoMaquinitaId;
 	}
 	
     @ManyToOne
     @JoinColumn(name = "cliente_id")
-	public Integer getClienteId() {
+	public Cliente getClienteId() {
 		return clienteId;
 	}
-	public void setClienteId(Integer clienteId) {
+	public void setClienteId(Cliente clienteId) {
 		this.clienteId = clienteId;
 	}
 
