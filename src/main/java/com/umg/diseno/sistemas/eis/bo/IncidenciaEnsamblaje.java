@@ -74,7 +74,7 @@ public class IncidenciaEnsamblaje extends AbstractBO {
 	}
 	
     @ManyToOne
-    @JoinColumn(name = "solicitud_id")
+    @JoinColumn(name = "idSolicitud")
 	public Solicitud getIdSolicitud() {
 		return idSolicitud;
 	}

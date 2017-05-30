@@ -14,9 +14,9 @@ public class Maquinita extends AbstractBO {
 
 	private Integer id;
 	private String codigoSerie;
-	private String decripcion;
+	private String descripcion;
 	private TipoMaquinita tipoMaquinita;
-	private MaquinitaComision comision;
+	private Convenio comision;
 	private Cliente cliente;
 	
     @Id
@@ -33,11 +33,11 @@ public class Maquinita extends AbstractBO {
 	public void setCodigoSerie(String codigoSerie) {
 		this.codigoSerie = codigoSerie;
 	}
-	public String getDecripcion() {
-		return decripcion;
+	public String getDescripcion() {
+		return descripcion;
 	}
-	public void setDecripcion(String decripcion) {
-		this.decripcion = decripcion;
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
 	}
 	
     @ManyToOne
@@ -51,10 +51,10 @@ public class Maquinita extends AbstractBO {
 	
     @ManyToOne
     @JoinColumn(name = "convenio_id")
-	public MaquinitaComision getComision() {
+	public Convenio getComision() {
 		return comision;
 	}
-	public void setComision(MaquinitaComision comision) {
+	public void setComision(Convenio comision) {
 		this.comision = comision;
 	}
 	

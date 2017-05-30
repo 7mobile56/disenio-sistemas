@@ -18,7 +18,7 @@ public class Mantenimiento extends AbstractBO {
 	private Date fechaInicio;
 	private Date fechaFin;
 	private Orden ordenId;
-	private Integer idTipoMantenimiento;
+	private TipoMantenimiento idTipoMantenimiento;
 	
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -56,12 +56,12 @@ public class Mantenimiento extends AbstractBO {
 		this.ordenId = ordenId;
 	}
 	
-    @ManyToOne (targetEntity = TipoMantenimiento.class)          
-    @JoinColumn(name = "idTipoMantenimiento")
-	public Integer getIdTipoMantenimiento() {
+    @ManyToOne ()          
+    @JoinColumn(name = "id_tipo_mantenimiento")
+	public TipoMantenimiento getIdTipoMantenimiento() {
 		return idTipoMantenimiento;
 	}
-	public void setIdTipoMantenimiento(Integer idTipoMantenimiento) {
+	public void setIdTipoMantenimiento(TipoMantenimiento idTipoMantenimiento) {
 		this.idTipoMantenimiento = idTipoMantenimiento;
 	}
 	

@@ -43,7 +43,7 @@ public class Solicitud extends AbstractBO {
 	}
 	
 	@ManyToOne
-	@JoinColumn(name = "tipoSolicitud_id")
+	@JoinColumn(name = "tipo_solicitud_id")
 	public TipoSolicitud getTipoSolicitudId() {
 		return tipoSolicitudId;
 	}
@@ -61,7 +61,7 @@ public class Solicitud extends AbstractBO {
 	}
 	
 	@ManyToOne
-	@JoinColumn(name = "estados_solicitud_id_estado")
+	@JoinColumn(name = "id_estado")
 	public EstadoSolicitud getIdEstado() {
 		return idEstado;
 	}
@@ -70,7 +70,7 @@ public class Solicitud extends AbstractBO {
 	}
 	
 	@ManyToOne
-	@JoinColumn(name = "usuarios_id_usuario")
+	@JoinColumn(name = "id_usuario")
 	public Usuario getIdUsuario() {
 		return idUsuario;
 	}

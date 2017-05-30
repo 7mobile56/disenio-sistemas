@@ -107,10 +107,10 @@
 	<changeSet id="4" author="ccalito" context="production">
 		<preConditions onFail="MARK_RAN">
 			<not>
-				<tableExists tableName="estadoMaquinita" />
+				<tableExists tableName="estado_maquinita" />
 			</not>
 		</preConditions>
-		<createTable tableName="estadoMaquinita">
+		<createTable tableName="estado_maquinita">
 			<column name="id" type="integer" autoIncrement="true"
 				incrementBy="1" startWith="1">
 				<constraints primaryKey="true" nullable="false" />
@@ -124,10 +124,10 @@
 	<changeSet id="5" author="ccalito" context="production">
 		<preConditions onFail="MARK_RAN">
 			<not>
-				<tableExists tableName="estados_solicitud" />
+				<tableExists tableName="estado_solicitud" />
 			</not>
 		</preConditions>
-		<createTable tableName="estados_solicitud">
+		<createTable tableName="estado_solicitud">
 			<column name="id_estado" type="integer" autoIncrement="true"
 				incrementBy="1" startWith="1">
 				<constraints primaryKey="true" nullable="false" />
@@ -141,10 +141,10 @@
 	<changeSet id="6" author="ccalito" context="production">
 		<preConditions onFail="MARK_RAN">
 			<not>
-				<tableExists tableName="puestos" />
+				<tableExists tableName="puesto" />
 			</not>
 		</preConditions>
-		<createTable tableName="puestos">
+		<createTable tableName="puesto">
 			<column name="id_puesto" type="integer" autoIncrement="true"
 				incrementBy="1" startWith="1">
 				<constraints primaryKey="true" nullable="false" />
@@ -158,10 +158,10 @@
 	<changeSet id="7" author="ccalito" context="production">
 		<preConditions onFail="MARK_RAN">
 			<not>
-				<tableExists tableName="estados_usuarios" />
+				<tableExists tableName="estado_usuario" />
 			</not>
 		</preConditions>
-		<createTable tableName="estados_usuarios">
+		<createTable tableName="estado_usuario">
 			<column name="id_estado" type="integer" autoIncrement="true"
 				incrementBy="1" startWith="1">
 				<constraints primaryKey="true" nullable="false" />
@@ -175,10 +175,10 @@
 	<changeSet id="8" author="ccalito" context="production">
 		<preConditions onFail="MARK_RAN">
 			<not>
-				<tableExists tableName="tipoSolicitud" />
+				<tableExists tableName="tipo_solicitud" />
 			</not>
 		</preConditions>
-		<createTable tableName="tipoSolicitud">
+		<createTable tableName="tipo_solicitud">
 			<column name="id" type="integer" autoIncrement="true"
 				incrementBy="1" startWith="1">
 				<constraints primaryKey="true" nullable="false" />
@@ -220,19 +220,19 @@
 				incrementBy="1" startWith="1">
 				<constraints primaryKey="true" nullable="false" />
 			</column>
-			<column name="tipo_convenio" type="varchar(100)">
+			<column name="tipo_comision_cliente" type="varchar(100)">
 				<constraints nullable="false" />
 			</column>
 			<column name="factor_cobro" type="double">
 				<constraints nullable="false" />
 			</column>
-			<column name="valor_transaccion" type="decimal">
+			<column name="valor_transaccion_cliente" type="decimal">
 				<constraints nullable="false" />
 			</column>
-			<column name="porcentaje_monto" type="double">
+			<column name="porcentaje_cliente" type="double">
 				<constraints nullable="false" />
 			</column>
-			<column name="frecuencia_cobro" type="varchar(100)">
+			<column name="frecuencia_calculo" type="varchar(100)">
 				<constraints nullable="false" />
 			</column>
 		</createTable>
@@ -241,10 +241,10 @@
 	<changeSet id="11" author="ccalito" context="production">
 		<preConditions onFail="MARK_RAN">
 			<not>
-				<tableExists tableName="tipoMantenimiento" />
+				<tableExists tableName="tipo_mantenimiento" />
 			</not>
 		</preConditions>
-		<createTable tableName="tipoMantenimiento">
+		<createTable tableName="tipo_mantenimiento">
 			<column name="id" type="integer" autoIncrement="true"
 				incrementBy="1" startWith="1">
 				<constraints primaryKey="true" nullable="false" />
@@ -258,10 +258,10 @@
 	<changeSet id="12" author="ccalito" context="production">
 		<preConditions onFail="MARK_RAN">
 			<not>
-				<tableExists tableName="usuarios" />
+				<tableExists tableName="usuario" />
 			</not>
 		</preConditions>
-		<createTable tableName="usuarios">
+		<createTable tableName="usuario">
 			<column name="id_usuario" type="integer" autoIncrement="true"
 				incrementBy="1" startWith="1">
 				<constraints primaryKey="true" nullable="false" />
@@ -287,12 +287,12 @@
 		</createTable>
 		
 		<addForeignKeyConstraint constraintName="usuarios_fk_estado"
-			referencedTableName="estados_usuarios" referencedColumnNames="id_estado"
-			baseTableName="usuarios" baseColumnNames="id_estado" />
+			referencedTableName="estado_usuario" referencedColumnNames="id_estado"
+			baseTableName="usuario" baseColumnNames="id_estado" />
 			
 		<addForeignKeyConstraint constraintName="usuarios_fk_persona_id"
 			referencedTableName="persona" referencedColumnNames="id"
-			baseTableName="usuarios" baseColumnNames="persona_id" />
+			baseTableName="usuario" baseColumnNames="persona_id" />
 
 	</changeSet>
 
@@ -310,6 +310,9 @@
 			<column name="codigo" type="integer">
 				<constraints nullable="false" />
 			</column>
+			<column name="logo" type="blob">
+				<constraints nullable="false" />
+			</column>
 			<column name="estado" type="char(1)">
 				<constraints nullable="false" />
 			</column>
@@ -319,7 +322,7 @@
 			<column name="telefono" type="varchar(30)">
 				<constraints nullable="false" />
 			</column>
-			<column name="email" type="varchar(120)">
+			<column name="correo_electronico" type="varchar(120)">
 				<constraints nullable="false" />
 			</column>
 			<column name="persona_id" type="integer">
@@ -347,20 +350,20 @@
 			<column name="id_puesto" type="integer">
 				<constraints nullable="false" />
 			</column>
-			<column name="id_usuario" type="varchar(45)">
+			<column name="id_usuario" type="integer">
 				<constraints nullable="false" />
 			</column>
-			<column name="persona_id" type="varchar(45)">
+			<column name="persona_id" type="integer">
 				<constraints nullable="false" />
 			</column>
 		</createTable>
 
 		<addForeignKeyConstraint constraintName="empleado_fk_puesto"
-			referencedTableName="puestos" referencedColumnNames="id_puesto"
+			referencedTableName="puesto" referencedColumnNames="id_puesto"
 			baseTableName="empleado" baseColumnNames="id_puesto" />
 			
 		<addForeignKeyConstraint constraintName="empleado_fk_usuario"
-			referencedTableName="usuarios" referencedColumnNames="id"
+			referencedTableName="usuario" referencedColumnNames="id_usuario"
 			baseTableName="empleado" baseColumnNames="id_usuario" />
 			
 		<addForeignKeyConstraint constraintName="empleado_fk_persona"
@@ -371,10 +374,59 @@
 	<changeSet id="15" author="ccalito" context="production">
 		<preConditions onFail="MARK_RAN">
 			<not>
-				<tableExists tableName="incidencias_ensamblaje" />
+				<tableExists tableName="solicitud" />
 			</not>
 		</preConditions>
-		<createTable tableName="incidencias_ensamblaje">
+		<createTable tableName="solicitud">
+			<column name="id" type="integer" autoIncrement="true"
+				incrementBy="1" startWith="1">
+				<constraints primaryKey="true" nullable="false" />
+			</column>
+			<column name="descripcion" type="varchar(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="fecha_solicitud" type="date">
+				<constraints nullable="false" />
+			</column>
+			<column name="tipo_solicitud_id" type="integer">
+				<constraints nullable="false" />
+			</column>
+			<column name="cliente_id" type="integer">
+				<constraints nullable="false" />
+			</column>
+			<column name="id_estado" type="integer">
+				<constraints nullable="false" />
+			</column>
+			<column name="id_usuario" type="integer">
+				<constraints nullable="false" />
+			</column>
+		</createTable>
+		
+		<addForeignKeyConstraint constraintName="solicitud_fk_tipo_solicitud"
+			referencedTableName="tipo_solicitud" referencedColumnNames="id"
+			baseTableName="solicitud" baseColumnNames="tipo_solicitud_id" />
+			
+		<addForeignKeyConstraint constraintName="solicitud_fk_cliente"
+			referencedTableName="cliente" referencedColumnNames="id"
+			baseTableName="solicitud" baseColumnNames="cliente_id" />
+			
+		<addForeignKeyConstraint constraintName="solicitud_fk_estado_solicitud"
+			referencedTableName="estado_solicitud" referencedColumnNames="id_estado"
+			baseTableName="solicitud" baseColumnNames="id_estado" />
+			
+		<addForeignKeyConstraint constraintName="solicitud_fk_usuario"
+			referencedTableName="usuario" referencedColumnNames="id_usuario"
+			baseTableName="solicitud" baseColumnNames="id_usuario" />
+
+	</changeSet>
+	
+	<changeSet id="16" author="ccalito" context="production">
+		<preConditions onFail="MARK_RAN">
+			<not>
+				<tableExists tableName="incidencia_ensamblaje" />
+			</not>
+		</preConditions>
+		<createTable tableName="incidencia_ensamblaje">
 			<column name="id_incidencia" type="integer" autoIncrement="true"
 				incrementBy="1" startWith="1">
 				<constraints primaryKey="true" nullable="false" />
@@ -394,20 +446,26 @@
 			</column>
 			<column name="fecha_solucion" type="date">
 			</column>
+			<column name="id_solicitud" type="integer">
+			</column>
 		</createTable>
 		
 		<addForeignKeyConstraint constraintName="incidencias_ensamblaje_fk_usuario_ingreso"
-			referencedTableName="usuarios" referencedColumnNames="id_usuario"
-			baseTableName="incidencias_ensamblaje" baseColumnNames="id_usuario_ingreso" />
+			referencedTableName="usuario" referencedColumnNames="id_usuario"
+			baseTableName="incidencia_ensamblaje" baseColumnNames="id_usuario_ingreso" />
 			
 		<addForeignKeyConstraint constraintName="incidencias_ensamblaje_fk_usuario_solvento"
-			referencedTableName="usuarios" referencedColumnNames="id_usuario"
-			baseTableName="incidencias_ensamblaje" baseColumnNames="id_usuario_solvento" />
+			referencedTableName="usuario" referencedColumnNames="id_usuario"
+			baseTableName="incidencia_ensamblaje" baseColumnNames="id_usuario_solvento" />
+			
+		<addForeignKeyConstraint constraintName="incidencias_ensamblaje_fk_solicitud"
+			referencedTableName="solicitud" referencedColumnNames="id"
+			baseTableName="incidencia_ensamblaje" baseColumnNames="id_solicitud" />
 			
 	</changeSet>
 	
 		
-	<changeSet id="16" author="ccalito" context="production">
+	<changeSet id="17" author="ccalito" context="production">
 		<preConditions onFail="MARK_RAN">
 			<not>
 				<tableExists tableName="maquinita" />
@@ -418,7 +476,7 @@
 				incrementBy="1" startWith="1">
 				<constraints primaryKey="true" nullable="false" />
 			</column>
-			<column name="numero_serie" type="varchar(100)">
+			<column name="codigo_serie" type="varchar(100)">
 				<constraints nullable="false" />
 			</column>
 			<column name="descripcion" type="varchar(100)">
@@ -435,7 +493,7 @@
 			</column>
 		</createTable>
 		
-		<addUniqueConstraint columnNames="numero_serie"
+		<addUniqueConstraint columnNames="codigo_serie"
 			tableName="maquinita" />
 		
 		<addForeignKeyConstraint constraintName="maquinita_fk_tipo_maquinita"
@@ -452,7 +510,7 @@
 				
 	</changeSet>
 	
-	<changeSet id="17" author="ccalito" context="production">
+	<changeSet id="18" author="ccalito" context="production">
 		<preConditions onFail="MARK_RAN">
 			<not>
 				<tableExists tableName="recaudacion" />
@@ -495,13 +553,13 @@
 	</changeSet>
 	
 		
-	<changeSet id="18" author="ccalito" context="production">
+	<changeSet id="19" author="ccalito" context="production">
 		<preConditions onFail="MARK_RAN">
 			<not>
-				<tableExists tableName="registroMaquinita" />
+				<tableExists tableName="registro_maquinita" />
 			</not>
 		</preConditions>
-		<createTable tableName="registroMaquinita">
+		<createTable tableName="registro_maquinita">
 			<column name="id" type="integer" autoIncrement="true"
 				incrementBy="1" startWith="1">
 				<constraints primaryKey="true" nullable="false" />
@@ -509,10 +567,10 @@
 			<column name="descripcion" type="varchar(255)">
 				<constraints nullable="false" />
 			</column>
-			<column name="fechaPuesta" type="date">
+			<column name="fecha_puesta" type="date">
 				<constraints nullable="false" />
 			</column>
-			<column name="estadoMaquinita_id" type="integer">
+			<column name="estado_maquinita_id" type="integer">
 				<constraints nullable="false" />
 			</column>
 			<column name="maquinita_id" type="integer">
@@ -527,70 +585,20 @@
 		</createTable>
 		
 		<addForeignKeyConstraint constraintName="registroMaquinita_fk_estado_maquinita"
-			referencedTableName="estadoMaquinita" referencedColumnNames="id"
-			baseTableName="registroMaquinita" baseColumnNames="estadoMaquinita_id" />
+			referencedTableName="estado_maquinita" referencedColumnNames="id"
+			baseTableName="registro_maquinita" baseColumnNames="estado_maquinita_id" />
 			
 		<addForeignKeyConstraint constraintName="registroMaquinita_maquinita"
 			referencedTableName="maquinita" referencedColumnNames="id"
-			baseTableName="registroMaquinita" baseColumnNames="maquinita_id" />
+			baseTableName="registro_maquinita" baseColumnNames="maquinita_id" />
 			
 		<addForeignKeyConstraint constraintName="registroMaquinita_fk_tipo_maquinita"
 			referencedTableName="tipo_maquinita" referencedColumnNames="id"
-			baseTableName="registroMaquinita" baseColumnNames="maquinita_tipo_maquinita_id" />
+			baseTableName="registro_maquinita" baseColumnNames="maquinita_tipo_maquinita_id" />
 
 		<addForeignKeyConstraint constraintName="registroMaquinita_fk_cliente"
 			referencedTableName="cliente" referencedColumnNames="id"
-			baseTableName="registroMaquinita" baseColumnNames="cliente_id" />
-
-	</changeSet>
-	
-		
-	<changeSet id="19" author="ccalito" context="production">
-		<preConditions onFail="MARK_RAN">
-			<not>
-				<tableExists tableName="solicitud" />
-			</not>
-		</preConditions>
-		<createTable tableName="solicitud">
-			<column name="id" type="integer" autoIncrement="true"
-				incrementBy="1" startWith="1">
-				<constraints primaryKey="true" nullable="false" />
-			</column>
-			<column name="descripcion" type="varchar(255)">
-				<constraints nullable="false" />
-			</column>
-			<column name="fechaSolicitud" type="date">
-				<constraints nullable="false" />
-			</column>
-			<column name="tipoSolicitud_id" type="integer">
-				<constraints nullable="false" />
-			</column>
-			<column name="cliente_id" type="integer">
-				<constraints nullable="false" />
-			</column>
-			<column name="estados_solicitud_id_estado" type="integer">
-				<constraints nullable="false" />
-			</column>
-			<column name="ususarios_id_usuario" type="integer">
-				<constraints nullable="false" />
-			</column>
-		</createTable>
-		
-		<addForeignKeyConstraint constraintName="solicitud_fk_tipo_solicitud"
-			referencedTableName="tipoSolicitud" referencedColumnNames="id"
-			baseTableName="solicitud" baseColumnNames="tipoSolicitud_id" />
-			
-		<addForeignKeyConstraint constraintName="solicitud_fk_cliente"
-			referencedTableName="cliente" referencedColumnNames="id"
-			baseTableName="solicitud" baseColumnNames="cliente_id" />
-			
-		<addForeignKeyConstraint constraintName="solicitud_fk_estado_solicitud"
-			referencedTableName="estados_solicitud" referencedColumnNames="id_estado"
-			baseTableName="solicitud" baseColumnNames="estados_solicitud_id_estado" />
-			
-		<addForeignKeyConstraint constraintName="solicitud_fk_usuario"
-			referencedTableName="usuarios" referencedColumnNames="id_usuario"
-			baseTableName="solicitud" baseColumnNames="ususarios_id_usuario" />
+			baseTableName="registro_maquinita" baseColumnNames="cliente_id" />
 
 	</changeSet>
 	
@@ -614,7 +622,7 @@
 			<column name="solicitud_id" type="integer">
 				<constraints nullable="false" />
 			</column>
-			<column name="registroMaquinita_id" type="integer">
+			<column name="registro_maquinita_id" type="integer">
 				<constraints nullable="false" />
 			</column>
 			<column name="empleados_id_empleado" type="integer">
@@ -627,8 +635,8 @@
 			baseTableName="orden" baseColumnNames="solicitud_id" />
 			
 		<addForeignKeyConstraint constraintName="orden_fk_registro_maquinita"
-			referencedTableName="registroMaquinita" referencedColumnNames="id"
-			baseTableName="orden" baseColumnNames="registroMaquinita_id" />
+			referencedTableName="registro_maquinita" referencedColumnNames="id"
+			baseTableName="orden" baseColumnNames="registro_maquinita_id" />
 			
 		<addForeignKeyConstraint constraintName="orden_fk_empleado"
 			referencedTableName="empleado" referencedColumnNames="id_empleado"
@@ -649,16 +657,16 @@
 			<column name="descripcion" type="varchar(255)">
 				<constraints nullable="false" />
 			</column>
-			<column name="fechaInicio" type="date">
+			<column name="fecha_inicio" type="date">
 				<constraints nullable="false" />
 			</column>
-			<column name="fechaFin" type="date">
+			<column name="fecha_fin" type="date">
 				<constraints nullable="false" />
 			</column>
 			<column name="orden_id" type="integer">
 				<constraints nullable="false" />
 			</column>
-			<column name="idTipoMantenimiento" type="integer">
+			<column name="id_tipo_mantenimiento" type="integer">
 				<constraints nullable="false" />
 			</column>
 		</createTable>
@@ -668,18 +676,18 @@
 			baseTableName="mantenimiento" baseColumnNames="orden_id" />
 			
 		<addForeignKeyConstraint constraintName="mantenimiento_fk_tipo_mantenimiento"
-			referencedTableName="tipoMantenimiento" referencedColumnNames="id"
-			baseTableName="mantenimiento" baseColumnNames="idTipoMantenimiento" />
+			referencedTableName="tipo_mantenimiento" referencedColumnNames="id"
+			baseTableName="mantenimiento" baseColumnNames="id_tipo_mantenimiento" />
 			
 	</changeSet>
 	
 	<changeSet id="22" author="ccalito" context="production">
 		<preConditions onFail="MARK_RAN">
 			<not>
-				<tableExists tableName="reporteMaquinita" />
+				<tableExists tableName="reporte_maquinita" />
 			</not>
 		</preConditions>
-		<createTable tableName="reporteMaquinita">
+		<createTable tableName="reporte_maquinita">
 			<column name="id" type="integer" autoIncrement="true"
 				incrementBy="1" startWith="1">
 				<constraints primaryKey="true" nullable="false" />
@@ -687,10 +695,10 @@
 			<column name="descripcion" type="varchar(255)">
 				<constraints nullable="false" />
 			</column>
-			<column name="fechaElaboracion" type="date">
+			<column name="fecha_elaboracion" type="date">
 				<constraints nullable="false" />
 			</column>
-			<column name="estadoMaquinita_id" type="integer">
+			<column name="estado_maquinita_id" type="integer">
 				<constraints nullable="false" />
 			</column>
 			<column name="mantenimiento_id" type="integer">
@@ -699,12 +707,12 @@
 		</createTable>
 		
 		<addForeignKeyConstraint constraintName="reporteMaquinita_fk_estado_maquinita"
-			referencedTableName="estadoMaquinita" referencedColumnNames="id"
-			baseTableName="reporteMaquinita" baseColumnNames="estadoMaquinita_id" />
+			referencedTableName="estado_maquinita" referencedColumnNames="id"
+			baseTableName="reporte_maquinita" baseColumnNames="estado_maquinita_id" />
 			
 		<addForeignKeyConstraint constraintName="reporteMaquinita_fk_mantenimiento"
 			referencedTableName="mantenimiento" referencedColumnNames="id"
-			baseTableName="reporteMaquinita" baseColumnNames="mantenimiento_id" />
+			baseTableName="reporte_maquinita" baseColumnNames="mantenimiento_id" />
 
 	</changeSet>
 

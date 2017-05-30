@@ -9,7 +9,7 @@ import javax.persistence.Id;
 import java.math.BigDecimal;
 
 @Entity
-public class MaquinitaComision extends AbstractBO {
+public class Convenio extends AbstractBO {
 	
 	private static final long serialVersionUID = 1L;
 

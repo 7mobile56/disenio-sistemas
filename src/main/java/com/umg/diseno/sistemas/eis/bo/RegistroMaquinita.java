@@ -15,7 +15,7 @@ public class RegistroMaquinita extends AbstractBO {
     private static final long serialVersionUID = 1L;
 
 	private Integer id;
-	private String ubicacion;
+	private String descripcion;
 	private Date fechaPuesta;
 	private EstadoMaquinita estadoMaquinitaId;
 	private Maquinita maquinitaId;
@@ -30,11 +30,11 @@ public class RegistroMaquinita extends AbstractBO {
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	public String getUbicacion() {
-		return ubicacion;
+	public String getDescripcion() {
+		return descripcion;
 	}
-	public void setUbicacion(String ubicacion) {
-		this.ubicacion = ubicacion;
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
 	}
 	public Date getFechaPuesta() {
 		return fechaPuesta;
@@ -44,7 +44,7 @@ public class RegistroMaquinita extends AbstractBO {
 	}
 	
     @ManyToOne
-    @JoinColumn(name = "estadoMaquinita_id")
+    @JoinColumn(name = "estado_maquinita_id")
 	public EstadoMaquinita getEstadoMaquinitaId() {
 		return estadoMaquinitaId;
 	}

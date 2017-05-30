@@ -16,7 +16,7 @@ public class Recaudacion extends AbstractBO {
     private static final long serialVersionUID = 1L;
 
 	private Integer id;
-	private Date fechaHora;
+	private Date fecha;
 	private Maquinita maquinitaId;
 	private Cliente clienteId;
 	private BigDecimal monto;
@@ -30,11 +30,11 @@ public class Recaudacion extends AbstractBO {
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	public Date getFechaHora() {
-		return fechaHora;
+	public Date getFecha() {
+		return fecha;
 	}
-	public void setFechaHora(Date fechaHora) {
-		this.fechaHora = fechaHora;
+	public void setFecha(Date fecha) {
+		this.fecha = fecha;
 	}
 	
     @ManyToOne
