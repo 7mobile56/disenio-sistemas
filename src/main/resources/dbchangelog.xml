@@ -328,9 +328,9 @@
 			<column name="codigo" type="integer">
 				<constraints nullable="false" />
 			</column>
-			<column name="logo" type="blob">
+			<!-- <column name="logo" type="blob">
 				<constraints nullable="false" />
-			</column>
+			</column>  -->
 			<column name="estado" type="char(1)">
 				<constraints nullable="false" />
 			</column>
