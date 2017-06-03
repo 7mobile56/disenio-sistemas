@@ -6,6 +6,10 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+
+import com.umg.diseno.sistemas.eis.bo.domain.FrecuenciaCalculo;
+import com.umg.diseno.sistemas.eis.bo.domain.TipoComisionCliente;
+
 import java.math.BigDecimal;
 
 @Entity

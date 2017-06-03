@@ -11,6 +11,7 @@ public class EstadoMaquinita extends AbstractBO {
     private static final long serialVersionUID = 1L;
 
 	private Integer id;
+	private String codigo;
 	private String descripcion;
 	
     @Id
@@ -21,7 +22,14 @@ public class EstadoMaquinita extends AbstractBO {
 	public void setId(Integer idEstado) {
 		this.id = idEstado;
 	}
-	public String getDescripcion() {
+	
+	public String getCodigo() {
+        return codigo;
+    }
+    public void setCodigo(String codigo) {
+        this.codigo = codigo;
+    }
+    public String getDescripcion() {
 		return descripcion;
 	}
 	public void setDescripcion(String descripcion) {

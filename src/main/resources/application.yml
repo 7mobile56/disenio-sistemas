@@ -10,7 +10,7 @@ spring:
       
      #Datasource and JPA configuration
   datasource:
-    url: jdbc:mysql://localhost:3306/diseno_sistemas
+    url: jdbc:mysql://localhost:3306/diseno_sistemas_final
     username: root
     password: root
     driver-class-name: com.mysql.jdbc.Driver

@@ -115,6 +115,9 @@
 				incrementBy="1" startWith="1">
 				<constraints primaryKey="true" nullable="false" />
 			</column>
+			<column name="codigo" type="varchar(10)">
+				<constraints nullable="false" />
+			</column>
 			<column name="descripcion" type="varchar(255)">
 				<constraints nullable="false" />
 			</column>
@@ -128,9 +131,12 @@
 			</not>
 		</preConditions>
 		<createTable tableName="estado_solicitud">
-			<column name="id_estado" type="integer" autoIncrement="true"
+			<column name="id" type="integer" autoIncrement="true"
 				incrementBy="1" startWith="1">
 				<constraints primaryKey="true" nullable="false" />
+			</column>
+			<column name="codigo" type="varchar(10)">
+				<constraints nullable="false" />
 			</column>
 			<column name="descripcion" type="varchar(100)">
 				<constraints nullable="false" />
@@ -145,9 +151,12 @@
 			</not>
 		</preConditions>
 		<createTable tableName="puesto">
-			<column name="id_puesto" type="integer" autoIncrement="true"
+			<column name="id" type="integer" autoIncrement="true"
 				incrementBy="1" startWith="1">
 				<constraints primaryKey="true" nullable="false" />
+			</column>
+			<column name="codigo" type="varchar(10)">
+				<constraints nullable="false" />
 			</column>
 			<column name="descripcion" type="varchar(255)">
 				<constraints nullable="false" />
@@ -162,9 +171,12 @@
 			</not>
 		</preConditions>
 		<createTable tableName="estado_usuario">
-			<column name="id_estado" type="integer" autoIncrement="true"
+			<column name="id" type="integer" autoIncrement="true"
 				incrementBy="1" startWith="1">
 				<constraints primaryKey="true" nullable="false" />
+			</column>
+			<column name="codigo" type="varchar(10)">
+				<constraints nullable="false" />
 			</column>
 			<column name="descripcion" type="varchar(100)">
 				<constraints nullable="false" />
@@ -183,7 +195,10 @@
 				incrementBy="1" startWith="1">
 				<constraints primaryKey="true" nullable="false" />
 			</column>
-			<column name="descripcion" type="varchar(45)">
+			<column name="codigo" type="varchar(10)">
+				<constraints nullable="false" />
+			</column>
+			<column name="descripcion" type="varchar(100)">
 				<constraints nullable="false" />
 			</column>
 		</createTable>
@@ -249,6 +264,9 @@
 				incrementBy="1" startWith="1">
 				<constraints primaryKey="true" nullable="false" />
 			</column>
+			<column name="codigo" type="varchar(10)">
+				<constraints nullable="false" />
+			</column>
 			<column name="descripcion" type="varchar(255)">
 				<constraints nullable="false" />
 			</column>
@@ -287,7 +305,7 @@
 		</createTable>
 		
 		<addForeignKeyConstraint constraintName="usuarios_fk_estado"
-			referencedTableName="estado_usuario" referencedColumnNames="id_estado"
+			referencedTableName="estado_usuario" referencedColumnNames="id"
 			baseTableName="usuario" baseColumnNames="id_estado" />
 			
 		<addForeignKeyConstraint constraintName="usuarios_fk_persona_id"
@@ -343,9 +361,12 @@
 			</not>
 		</preConditions>
 		<createTable tableName="empleado">
-			<column name="id_empleado" type="integer" autoIncrement="true"
+			<column name="id" type="integer" autoIncrement="true"
 				incrementBy="1" startWith="1">
 				<constraints primaryKey="true" nullable="false" />
+			</column>
+			<column name="codigo" type="varchar(10)">
+				<constraints nullable="false" />
 			</column>
 			<column name="id_puesto" type="integer">
 				<constraints nullable="false" />
@@ -359,7 +380,7 @@
 		</createTable>
 
 		<addForeignKeyConstraint constraintName="empleado_fk_puesto"
-			referencedTableName="puesto" referencedColumnNames="id_puesto"
+			referencedTableName="puesto" referencedColumnNames="id"
 			baseTableName="empleado" baseColumnNames="id_puesto" />
 			
 		<addForeignKeyConstraint constraintName="empleado_fk_usuario"
@@ -411,7 +432,7 @@
 			baseTableName="solicitud" baseColumnNames="cliente_id" />
 			
 		<addForeignKeyConstraint constraintName="solicitud_fk_estado_solicitud"
-			referencedTableName="estado_solicitud" referencedColumnNames="id_estado"
+			referencedTableName="estado_solicitud" referencedColumnNames="id"
 			baseTableName="solicitud" baseColumnNames="id_estado" />
 			
 		<addForeignKeyConstraint constraintName="solicitud_fk_usuario"
@@ -639,7 +660,7 @@
 			baseTableName="orden" baseColumnNames="registro_maquinita_id" />
 			
 		<addForeignKeyConstraint constraintName="orden_fk_empleado"
-			referencedTableName="empleado" referencedColumnNames="id_empleado"
+			referencedTableName="empleado" referencedColumnNames="id"
 			baseTableName="orden" baseColumnNames="empleados_id_empleado" />
 	</changeSet>	
 	

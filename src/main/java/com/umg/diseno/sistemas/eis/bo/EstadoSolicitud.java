@@ -9,23 +9,30 @@ import javax.persistence.Id;
 public class EstadoSolicitud extends AbstractBO {
 
     private static final long serialVersionUID = 1L;
-
-	private Integer idEstado;
-	private String descripcion;
-	
+    private Integer id;
+    private String codigo;
+    private String descripcion;
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-	public Integer getIdEstado() {
-		return idEstado;
-	}
-	public void setIdEstado(Integer idEstado) {
-		this.idEstado = idEstado;
-	}
-	public String getDescripcion() {
-		return descripcion;
-	}
-	public void setDescripcion(String descripcion) {
-		this.descripcion = descripcion;
-	}
-
+    public Integer getId() {
+        return id;
+    }
+    public void setId(Integer idEstado) {
+        this.id = idEstado;
+    }
+    
+    public String getCodigo() {
+        return codigo;
+    }
+    public void setCodigo(String codigo) {
+        this.codigo = codigo;
+    }
+    public String getDescripcion() {
+        return descripcion;
+    }
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+    
 }

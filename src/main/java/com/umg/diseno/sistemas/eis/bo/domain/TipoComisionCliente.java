@@ -1,4 +1,4 @@
-package com.umg.diseno.sistemas.eis.bo;
+package com.umg.diseno.sistemas.eis.bo.domain;
 
 public enum TipoComisionCliente {
 	MXT("com.umg.maquinitas.eis.bo.dominio.TipoComisionCliente.MXT"), 

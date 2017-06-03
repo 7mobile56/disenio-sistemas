@@ -10,21 +10,29 @@ public class Puesto extends AbstractBO {
 
     private static final long serialVersionUID = 1L;
 
-	private Integer idPuesto;
+	private Integer id;
+	private String codigo;
 	private String descripcion;
 	
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-	public Integer getIdPuesto() {
-		return idPuesto;
-	}
-	public void setIdPuesto(Integer idPuesto) {
-		this.idPuesto = idPuesto;
-	}
-	public String getDescripcion() {
-		return descripcion;
-	}
-	public void setDescripcion(String descripcion) {
+	public Integer getId() {
+        return id;
+    }
+    public void setId(Integer id) {
+        this.id = id;
+    }
+    public String getCodigo() {
+        return codigo;
+    }
+    public void setCodigo(String codigo) {
+        this.codigo = codigo;
+    }
+    public String getDescripcion() {
+        return descripcion;
+    }
+    
+    public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
 	}
 
