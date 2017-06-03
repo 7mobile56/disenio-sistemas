@@ -14,7 +14,7 @@ public class Cliente extends AbstractBO {
 	private Integer id;
 	private Persona persona;
 	private Integer codigo;
-	private byte[] logo;
+	//private byte[] logo;
 	private Boolean estado;
 	private String contacto;
 	private String telefono;
@@ -43,12 +43,12 @@ public class Cliente extends AbstractBO {
 	public void setCodigo(Integer codigo) {
 		this.codigo = codigo;
 	}
-	public byte[] getLogo() {
+	/*public byte[] getLogo() {
 		return logo;
 	}
 	public void setLogo(byte[] logo) {
 		this.logo = logo;
-	}
+	} */
 	public Boolean getEstado() {
 		return estado;
 	}
