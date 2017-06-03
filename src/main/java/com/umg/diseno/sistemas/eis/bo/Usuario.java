@@ -15,6 +15,7 @@ public class Usuario extends AbstractBO {
     private static final long serialVersionUID = 1L;
 	private Integer idUsuario;
 	private EstadoUsuario idEstado;
+	private String username;
 	private String password;
 	private Date fechaCreacion;
 	private Date ultimoLogin;
@@ -37,6 +38,12 @@ public class Usuario extends AbstractBO {
 	}
 	public void setIdEstado(EstadoUsuario idEstado) {
 		this.idEstado = idEstado;
+	}
+	public String getUsername() {
+		return username;
+	}
+	public void setUsername(String username) {
+		this.username = username;
 	}
 	public String getPassword() {
 		return password;
